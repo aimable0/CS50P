@@ -29,6 +29,6 @@ def calculate_order():
                 order_total += menu[item]
                 print(f"Total: ${order_total:.2f}")
 
-
-main()
+if __name__ == "__main__":
+    main()
 

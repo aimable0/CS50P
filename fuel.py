@@ -24,6 +24,6 @@ def print_percentage(fraction):
         print('E')
     else:
         print(f"{percentage}%")
-
-main()
+if __name__ == "__main__":
+    main()
 
