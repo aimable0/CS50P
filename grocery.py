@@ -19,5 +19,5 @@ def print_list(items_list):
     for item in items:
         print(f"{items[item]} {item}")
 
-
-main()
+if __name__ == "__main__":
+    main()

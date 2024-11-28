@@ -40,4 +40,5 @@ def no_num_in_the_middle(plate):
     # check if the substring from the first number to the end is numeric
     return plate[plate.index(first_num):].isnumeric()
 
-main()
+if __name__ == "__main__":
+    main()
