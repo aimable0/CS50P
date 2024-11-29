@@ -11,7 +11,7 @@ def print_names(*args, **kwargs):
     print(args)
 
     # args that are keyword arguments.. or that have named parameters assigned to them
-    # ex name="kamanzi" are collected into a dictionary
+    # ex name="kamanzi" are collected into a dictionary using (**kwargs)
     print(kwargs['name'])
 
 names = 'Nkurikiyimana aimable'

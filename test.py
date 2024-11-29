@@ -1,42 +1,29 @@
-import random
+import requests
+import json
+import rich
 
-def main():
-    level = get_level()
-    score = 0
+response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+# response is a Response object (object created by requests module) not a python object
+# to be specific its a reqeusts.models.Response object..
+print(response)
+print(type(response))
 
-    for _ in range(10):
-        x = generate_integer(level)
-        y = generate_integer(level)
-        if ask_question(x, y):
-            score += 1
+# to convert this Response object we get from reqeuest.. we need a specifi method called .json()
+# this .json() methods works only (as far I know) on response objects
+# response.json() converts Response object to python object (ex: dict, or list)
+data = response.json()
 
-    print(f"Score: {score}")
+# OUTPUTTING THE DATA
 
-def get_level():
-    while True:
-        try:
-            level = int(input("Level: "))
-            if level in range(1, 4):
-                return level
-        except ValueError:
-            pass
+# 1. to print in a colorful and more readable format..
+# rich.print_json(data=data)
 
-def generate_integer(level):
-    ranges = {1: (0, 9), 2: (10, 99), 3: (100, 999)}
-    return random.randint(*ranges[level])
 
-def ask_question(x, y):
-    correct_answer = x + y
-    for trial in range(3):
-        try:
-            answer = int(input(f"{x} + {y} = "))
-            if answer == correct_answer:
-                return True
-        except ValueError:
-            pass
-        print("EEE")
-    print(f"{x} + {y} = {correct_answer}")
-    return False
+# 2. USING JSON.DUMPS TO CREATE A JSON_FORMAT_STRING. (easy to read)
+# json.dumps .dumps is a json method that takes a python object and converts it to JSON
+json_string = json.dumps(data, indent=2)
+print(json_string)
 
-if __name__ == "__main__":
-    main()
+# challenge get the usssd rate of bitcoin
+rate = data['bpi']['USD']['rate']
+rate_float = data['bpi']['USD']['rate_float']
