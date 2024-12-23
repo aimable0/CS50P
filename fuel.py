@@ -1,9 +1,9 @@
 def main():
-    fraction = get_fraction()
-    print_percentage(fraction)
+    fraction = convert()
+    gauge(fraction)
 
 
-def get_fraction():
+def convert():
     while True:
         fraction = (input('Fraction: ')).strip()
         try:
@@ -16,14 +16,15 @@ def get_fraction():
                 return x / y
             pass
 
-def print_percentage(fraction):
+def gauge(fraction):
     percentage = round(fraction * 100)
-    if percentage == 100:
+    if percentage >= 99:
         print('F')
     elif percentage <= 1:
         print('E')
     else:
         print(f"{percentage}%")
+
 if __name__ == "__main__":
     main()
 
