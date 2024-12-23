@@ -1,7 +1,7 @@
 def main(): 
-  word = 'twitter'
+  word = input('Input: ')
   word = shorten(word)
-  print(word)
+  print("Output:", word)
 
 def shorten(word):
   return "".join([char for char in word if char.lower() not in ['a', 'e', 'i', 'o', 'u']])
