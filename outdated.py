@@ -1,6 +1,5 @@
 # programm that format the date to YYYY-MM-DD
 
-
 def main():
     months = [
         "January",
@@ -18,7 +17,7 @@ def main():
     ]
     while True:
         input_date = input("Date: ").strip()
-        if " " in input_date:
+        if " " in input_date and ',' in input_date:
             date = input_date.split(" ")
             if date[0] in months and int(date[1].replace(",", "")) <= 31:
                 print(
@@ -29,9 +28,12 @@ def main():
                 pass
 
         date = input_date.split("/")
-        if int(date[0]) in range(1, 12):
-            print(f"{int(date[2])}-{int(date[0]):02}-{int(date[1]):02}")
-            break
+        try:
+            if int(date[0]) in range(1, 12) and int(date[1]) <= 31:
+                print(f"{int(date[2])}-{int(date[0]):02}-{int(date[1]):02}")
+                break
+        except ValueError:
+            pass
         pass
 
 if __name__ == "__main__":

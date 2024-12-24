@@ -1,10 +1,9 @@
-def main():
-  # test
-  name = "Aimable"
-  # this would result into a value error because: the split separator can not be empty
-  full_names = "".join(for i in name if i not in ['a', 'e', 'i'])
-  print(full_names)
-  
+# def math_function():
+#     return f"{a}".format(2+4)
 
-if __name__ == "__main__":
-  main()
+# print(math_function())
+
+
+perc = '25%'
+perc_num = int(perc[:-1])
+print(perc_num)

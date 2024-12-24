@@ -1,5 +1,5 @@
 def main():
-    item = input('Item: ').strip().capitalize()
+    item = input('Item: ').strip().title()
     print_calorie(item)
 
 def print_calorie(fruit):
