@@ -1,1 +1,1 @@
-print(int('love'))
+import tabulate

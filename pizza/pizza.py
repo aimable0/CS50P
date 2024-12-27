@@ -1,3 +1,4 @@
+from tabulate import tabulate
 import sys
 import csv
 
@@ -22,28 +23,9 @@ def main():
 def print_table(filename):
     with open(filename) as file:
         reader = csv.reader(file)
-        i = 0
-        for col1, col2, col3 in reader:
-            if i == 0:
-                print("+------------------+---------+---------+")
-                print(
-                    "|{}|{}|{}|".format(
-                        (" " + col1 + ((17 - len(col1)) * " ")),
-                        (" " + col2 + ((8 - len(col2)) * " ")),
-                        (" " + col3 + ((8 - len(col3)) * " ")),
-                    )
-                )
-                print("+==================+=========+=========+")
-            else:
-                print(
-                    "|{}|{}|{}|".format(
-                        (" " + col1 + ((17 - len(col1)) * " ")),
-                        (" " + col2 + ((8 - len(col2)) * " ")),
-                        (" " + col3 + ((8 - len(col3)) * " ")),
-                    )
-                )
-                print("+------------------+---------+---------+")
-            i += 1
+        data = [line for line in reader]
+        content = data[1:]
+        print(tabulate(content, headers=data[0], tablefmt="grid"))
 
 
 if __name__ == "__main__":
