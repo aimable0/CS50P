@@ -13,4 +13,5 @@ print(re.match(r"aimable", "aaimablenkurikiye"))
 
 # fullmatch matches from the beginning to the end
 # returns something like <re.Match object; span=(0, 7), match='aimable'> or none
-print(re.fullmatch(r"aimable", "aimable"))
+# The code below returns none because the string doesn't match throught
+print(re.fullmatch(r"aimable", "aimables"))

@@ -23,7 +23,7 @@ def validate(ip):
         # check if the address contains exactly four segments to be valid.
         return True if len(address_nums) == 4 else False
     except ValueError:
-        # returns False if any error occurs (e.g non-integer input)
+        # returns False if any non-integer is detected.
         return False
 
 
