@@ -33,9 +33,10 @@ def write_csv(old_file, new_file):
             else:
                 data.append([names, house])
 
-    with open(new_file, "a", newline="") as file:
+    with open(new_file, "w", newline="") as file:
         writer = csv.writer(file)
-        writer.writerows(data)
+        writer.writerow(["first", "last", "house"])
+        writer.writerows(data[1:])
 
 
 if __name__ == "__main__":

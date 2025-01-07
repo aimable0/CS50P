@@ -1,4 +1,5 @@
 import sys
+import re
 
 
 def main():
@@ -30,14 +31,14 @@ def count_lines(file):
         int: total number of lines of code
     """
     try:
+        count = 0
         with open(file) as f:
-            count = 0
             for line in f:
-                if not line.startswith("# ") and line != "\n":
-                    count += 1
+              if not line.isspace() and not line.startswith("#"):
+                  count += 1
+        return count
     except FileNotFoundError:
         sys.exit("File does not exist")
-    return count
 
 
 if __name__ == "__main__":
