@@ -1,31 +1,24 @@
-class Student:
-
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        if name != None:
-            self._name = name
-
-    @property
-    def age(self):
-        return self._age
-
-    @age.setter
-    def age(self, age):
-        if age > 0:
-            self._age = age
-
-    def __str__(self):
-        return f"{self.name} is {self.age}"
+# create a class that ranks student.
 
 
-student = Student("Aimable", 0)
-student.age = 0
-print(student)
+class Rank:
+
+    students = {"Aimable": 80, "JeanLuc": 90, "Uwase": 33, "Didier": 67, "Carine": 89}
+
+    @classmethod
+    def rank(cls):
+        max_perc = None
+        name = None
+        for student, perc in cls.students.items():
+            if max_perc == None:
+                max_perc = perc
+                name = student
+            else:
+                if perc < max_perc:
+                    max_perc = perc
+                    name = student
+
+        return f"The most out-last_standing student is {name} with {max_perc}%"
+
+
+print(Rank.rank())
