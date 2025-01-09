@@ -4,13 +4,13 @@ import sys
 
 
 def main():
-    birth_day_date = get_birth_date()
+    birth_date = input("Date of Birth: ")
+    birth_day_date = get_birth_date(birth_date)
     minutes_in_words = get_minutes(birth_day_date)
     print(minutes_in_words)
 
 
-def get_birth_date():
-    birth_date = input("Date of Birth: ")
+def get_birth_date(birth_date):
     try:
         b_date = date.fromisoformat(birth_date)
     except ValueError:

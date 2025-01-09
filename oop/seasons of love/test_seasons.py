@@ -16,4 +16,4 @@ def test_get_minutes():
 
 def test_get_birth_date_with_invalids():
     with pytest.raises(SystemExit):
-        get_minutes("2012-16-08")
+        get_birth_date("2012-16-08")
